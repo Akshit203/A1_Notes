@@ -1,18 +1,14 @@
-document.addEventListener("DOMContent", () => {
-
+document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.querySelector("#add");
   
     const updateLSData = () => {
-
       const textAreaData = document.querySelectorAll("textarea");
       const notes = [];
       textAreaData.forEach((note) => notes.push(note.value));
       localStorage.setItem("notes", JSON.stringify(notes));
-
     };
   
     const addNewNote = (text = "") => {
-
       const note = document.createElement("div");
       note.classList.add("notes");
   
@@ -59,7 +55,6 @@ document.addEventListener("DOMContent", () => {
   
     // Load existing notes from localStorage
     const notes = JSON.parse(localStorage.getItem("notes"));
-    
     if (notes) {
       notes.forEach((note) => addNewNote(note));
     }
